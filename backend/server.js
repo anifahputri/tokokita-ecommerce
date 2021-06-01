@@ -22,5 +22,5 @@ app.get('/api/products/:id', (request, response) => {
 
 
 app.listen(5000, () => {
-  console.log('serve at http://localhost:5000');
+  console.log('berjalan pada http://localhost:5000');
 });
