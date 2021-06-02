@@ -131,3 +131,26 @@
   10. buat "Tambahkan ke keranjang" button dengan add-button id
   11. after_render() untuk add event pada button
   12. redirect user ke cart/:product_id
+
+14. Tambah ke Keranjang Action
+  1. buat CartScreen.js
+  2. parseRequestUrl
+  3. getProduct(request.id)
+  4. addToCart
+  5. getCartItems
+  6. cartItems.find
+  7. if existItem update qty
+  8. else add item
+  9. setCartItems
+
+15. Cart UI
+  1. cartItems = getCartitems()
+  2. buat 2 kolom untuk cart items dan cart action
+  3. cartItems.length === 0 ? cart is empty
+  4. show item img, name, qty dan harga
+  5. cart action
+  6. subtotal
+  7. Proceed to checkout button
+  8. tambah pada style.css
+
+16. 

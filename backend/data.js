@@ -30,7 +30,7 @@ export default {
       brand: 'Adidas',
       rating: 5,
       numberReviews: 424,
-      countInStock: 61,
+      countInStock: 0,
     }, {
       _id: '4',
       name: 'Miles and Co',
