@@ -30,8 +30,59 @@ const CartScreen = {
         qty: 1,
       });
     }
-    return `<div>Tampilan Keranjang</div>
-    <div>${getCartItems().length}</div>
+    const cartItems = getCartItems();
+    return `
+    <div class="content cart">
+      <div class="cart-list">
+        <ul class="cart-list-container">
+          <li>
+            <h3>Keranjang Belanja</h3>
+            <div>Harga</div>
+          </li>
+          ${
+            cartItems.length === 0
+            ? '<div>Keranjang Belanja Kosong. <a href="/#/">Silahkan Tambahkan Barang Belanjaan Anda</a>'
+            : cartItems.map(item => `
+            <li>
+              <div class="cart-image">
+                <img src="${item.image}" alt="${item.name}" />
+              </div>
+              <div class="cart-name">
+                <div>
+                  <a href="/#/product/${item.product}">
+                    ${item.name}
+                  <a/>
+                </div>
+                <div>
+                  Jumlah:
+                  <select class="qty-select" id="${item.product}">
+                    <option value="1">1</option>
+                  </select>
+                  <button type="button" class="delete-button" id="${item.product}">
+                    Hapus
+                  </button>
+                </div>
+              </div>
+              <div class="cart-price">
+                Rp ${item.price}
+              </div>
+            `
+              ).join('\n')
+          }
+        </ul>
+      </div>
+      <div class="cart-action">
+          <h3>
+            Subtotal (${cartItems.reduce((akm, current) => akm + current.qty, 0)} items)
+            :
+            Rp ${cartItems.reduce((akm, current) => akm + current.price * current.qty, 0)}
+          </h3>
+          <button id="checkout-button" class="primary fullw">
+            Beli
+          </button>
+      </div>
+
+    </div>
     `;
   },
 };
