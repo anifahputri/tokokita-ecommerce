@@ -14,7 +14,7 @@ a{
   text-decoration: none;
 }
 a:hover{
-  color: #f08040;
+  color: #000000;
 }
 button {
   font: 1.6rem helvetica;
@@ -24,10 +24,10 @@ button {
   cursor: pointer;
 }
 button:hover {
-  border: 0.1rem #404040 solid;
+  border: 0.2rem #14a834 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: #f0f0f0;
 }
 .fullw {
   width: 100%;
@@ -50,7 +50,7 @@ button.primary {
 }
 header{
   grid-area: header;
-  background-color: #203040;
+  background-color: #14a834;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -69,7 +69,7 @@ header a:hover{
   font-size: 3rem;
 }
 footer{
-  background-color: #203040;
+  background-color: #14a834;
   display: flex;
   justify-content: center;
   align-items: center;
