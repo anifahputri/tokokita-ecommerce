@@ -77,7 +77,7 @@ const CartScreen = {
             :
             Rp ${cartItems.reduce((akm, current) => akm + current.price * current.qty, 0)}
           </h3>
-          <button id="checkout-button" class="primary fullw">
+          <button id="checkout-button" class="fullw primary">
             Beli
           </button>
       </div>

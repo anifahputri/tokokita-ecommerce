@@ -24,13 +24,14 @@ button {
   cursor: pointer;
 }
 button:hover {
-  border: 0.2rem #14a834 solid;
+  border: 0.2rem #f08040 solid;
 }
 button.primary {
-  background-color: #f0f0f0;
+  background-color: #14a834;
 }
 .fullw {
   width: 100%;
+  color: #f0f0f0;
 }
 .success {
   color: #40c040;
