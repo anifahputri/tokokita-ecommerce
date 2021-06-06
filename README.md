@@ -169,3 +169,30 @@
   13. setCartItems(getCartItems().filter)
   14. if id === parseRequestUrl().id ? redirect to '/cart'
   15. else rerender(CartScreen)
+
+17. Connect ke MongoDB dan Buat user admin
+  1. npm install mongoose
+  2. connect to mongodb
+  3. buat config.js
+  4. npm install dotenv
+  5. export PORT dan MONGOFB_URL
+  6. buat models//userModel.js
+  7. create userSchema dan userModel
+  8. buat userRoute
+  9. buat createAdmin route
+
+18. Sign-in UI
+  1. buat LoginScreen
+  2. render email dan passworld
+  3. style.css
+
+19. Sign-in action
+  1. after_render() menangani dari submit form
+  2. buat login request di frontend
+  3. buat login api di backend
+
+20. Buat header
+  1. update index.html
+  2. tmbah header render dan after render ke router function
+  3. tampilkan header menu berdasar user sudah login atau belum
+  
