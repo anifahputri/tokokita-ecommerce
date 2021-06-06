@@ -153,4 +153,19 @@
   7. Proceed to checkout button
   8. tambah pada style.css
 
-16. 
+16. Update dan Delete Cart Items
+  1. tambah jumlah select pada setiap item
+  2. after_render()
+  3. tambah perubahan pada jumlah select
+  4. getCartItems() dan pass ke addToCart()
+  5. set force ke true pada addToCart()
+  6. buat rerender() sebagai (component, areaName = 'content')
+  7. component.render dan component.after_render
+  8. if force true then rerender()
+  9. tmbah delete button pada setiap item
+  10. tambah click event pada jumlah button
+  11. panggil removeFromCart(deleteBUtton.id)
+  12. implementasikan removeFromCart(id)
+  13. setCartItems(getCartItems().filter)
+  14. if id === parseRequestUrl().id ? redirect to '/cart'
+  15. else rerender(CartScreen)
