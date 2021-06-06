@@ -4,6 +4,7 @@ import cors from 'cors';
 import data from './data';
 import mongoose from 'mongoose';
 import config from './config';
+import userRouter from './routers/userRouter';
 
 mongoose
   .connect(config.MONGODB_URL, {
@@ -19,6 +20,7 @@ mongoose
 const app = express();
 // memakai cors untuk mencegah blocked policy
 app.use(cors());
+app.use('/api/users', userRouter);
 app.get('/api/products', (request, response) => {
   // return array dari data.js
   // sending data ke client
