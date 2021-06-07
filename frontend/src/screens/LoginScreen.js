@@ -1,7 +1,6 @@
 const LoginScreen = {
   after_render: () => {},
-  render: () => {
-    return `
+  render: () => `
     <div class="form-container">
       <form id="login-form">
         <ul class="form-items">
@@ -28,7 +27,6 @@ const LoginScreen = {
         </ul>
       </form>
     </div>
-    `;
-  },
+    `,
 };
 export default LoginScreen;
