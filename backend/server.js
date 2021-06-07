@@ -1,8 +1,9 @@
 // import express dan running express menghasilkan return object
 import express from 'express';
 import cors from 'cors';
-import data from './data';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import data from './data';
 import config from './config';
 import userRouter from './routers/userRouter';
 
@@ -20,6 +21,7 @@ mongoose
 const app = express();
 // memakai cors untuk mencegah blocked policy
 app.use(cors());
+app.use(bodyParser.json());
 app.use('/api/users', userRouter);
 app.get('/api/products', (request, response) => {
   // return array dari data.js
@@ -34,8 +36,10 @@ app.get('/api/products/:id', (request, response) => {
     response.status(404).send({ message: 'Produk Tidak Ditemukan!' });
   }
 });
-
-
+app.use((err, request, response, next) => {
+  const status = err.name && err.name === 'ValidationError' ? 400 : 500;
+  response.status(status).send({message: err.message});
+});
 app.listen(5000, () => {
   console.log('berjalan pada http://localhost:5000');
 });
