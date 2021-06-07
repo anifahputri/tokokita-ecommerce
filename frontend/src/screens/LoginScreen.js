@@ -1,5 +1,22 @@
+import { login } from "../api";
+
 const LoginScreen = {
-  after_render: () => {},
+  after_render: () => {
+    document
+    .getElementById("login-form")
+    .addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = await login({
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+      });
+      if (data.error) {
+        alert(data.error);
+      } else {
+        document.location.hash = '/';
+      }
+    });
+  },
   render: () => `
     <div class="form-container">
       <form id="login-form">
