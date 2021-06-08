@@ -39,7 +39,7 @@ userRouter.post(
         email: loginUser.email,
         isAdmin: loginUser.isAdmin,
         token: generateToken(loginUser),
-      })
+      });
     }
   }));
 export default userRouter;
