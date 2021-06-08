@@ -84,7 +84,7 @@ const CartScreen = {
                     ${item.name}
                   <a/>
                 </div>
-                <div>
+                <div class="cart-jumlah">
                   Jumlah:
                   <select class="qty-select" id="${item.product}">
                     ${[...Array(item.countInStock).keys()].map((x) => 

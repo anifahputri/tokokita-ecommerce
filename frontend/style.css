@@ -71,7 +71,9 @@ header a:hover{
   color: #f08040;
 }
 .brand a{
+  font-weight: bold;
   font-size: 3rem;
+  padding-left: 1rem;
 }
 footer{
   background-color: #14a834;
@@ -147,6 +149,7 @@ footer{
 .details-info,
 .details-action {
   flex: 1 1 30rem;
+  margin: 1rem;
 }
 .details-info ul,
 .details-action ul {
@@ -174,6 +177,9 @@ footer{
   flex-wrap: wrap;
   align-items: flex-start;
 }
+.cart-list{
+  flex: 3 1 60rem;
+}
 .cart-action {
   flex: 1 1 20rem;
   background-color: #f0f0f0;
@@ -188,7 +194,7 @@ footer{
 .cart-list-container li {
   display: flex;
   justify-content: space-between;
-  padding-right: 55rem;
+  /* padding-right: 55rem; */
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   border-bottom: 0.1rem #c0c0c0 solid;
@@ -200,6 +206,9 @@ footer{
 .cart-list-container li:first-child {
   align-items: flex-end;
 }
+/* .car-list-container li div {
+  padding-left: 25rem;
+} */
 .cart-name {
   flex: 8 1;
 }
@@ -212,6 +221,9 @@ footer{
 }
 .cart-name > div {
   padding: 1rem;
+}
+.cart-jumlah {
+  padding-left: 1rem;
 }
 .cart-list h3 {
   margin: 0;
