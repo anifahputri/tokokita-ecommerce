@@ -1,12 +1,12 @@
 import CartScreen from './screens/CartScreen';
 import Error404Screen from './screens/Error404Screen';
-import HomeScreen from './screens/HomeScreen';
+import home from './screens/home';
 import LoginScreen from './screens/LoginScreen';
 import ProductScreen from './screens/ProductScreen';
 import { parseRequestUrl } from './utils';
 
 const routes = {
-  '/': HomeScreen,
+  '/': home,
   '/product/:id': ProductScreen,
   '/cart/:id': CartScreen,
   '/cart': CartScreen,
