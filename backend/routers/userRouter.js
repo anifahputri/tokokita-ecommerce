@@ -1,7 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/userModel';
-import { generateToken } from '../utils';
+import { generateToken, isAuth } from '../utils';
 
 const userRouter = express.Router();
 
@@ -65,4 +65,28 @@ userRouter.post(
         });
       }
     }));
+    userRouter.put(
+      '/:id',
+      isAuth,
+      expressAsyncHandler (async (request, response) => {
+        const user = await User.findById(request.params.id);
+        const createdUser = await user.save();
+        if (!user) {
+          response.status(404).send({
+            message: 'Pengguna Tidak Ditemukan!',
+          });
+        } else {
+          user.name = request.body.name || user.name
+          user.email = request.body.email || user.email
+          user.password = request.body.password || user.password
+          const updatedUser = await user.save();
+          response.send({
+            _id: createdUser._id,
+            name: createdUser.name,
+            email: createdUser.email,
+            isAdmin: createdUser.isAdmin,
+            token: generateToken(updatedUser),
+          });
+        }
+      }));
 export default userRouter;

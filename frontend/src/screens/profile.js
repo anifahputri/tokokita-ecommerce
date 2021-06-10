@@ -1,15 +1,19 @@
-import { register } from "../api";
-import { getUserInfo, setUserInfo } from "../localStorage";
+import { update } from "../api";
+import { clearUser, getUserInfo, setUserInfo } from "../localStorage";
 import { hideLoading, showLoading, showMessage } from "../utils";
 
-const daftar = {
+const profile = {
   after_render: () => {
+    document.getElementById("logout-button").addEventListener('click', () => {
+      clearUser();
+      document.location.hash = '/'
+    });
     document
-    .getElementById("register-form")
+    .getElementById("profile-form")
     .addEventListener("submit", async (e) => {
       e.preventDefault();
       showLoading();
-      const data = await register({
+      const data = await update({
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
@@ -24,40 +28,33 @@ const daftar = {
     });
   },
   render: () => {
-    if (getUserInfo().name) {
+    const { name, email } = getUserInfo();
+    if (!name) {
       document.location.hash = '/';
     }
     return `
       <div class="form-container">
-        <form id="register-form">
+        <form id="profile-form">
           <ul class="form-items">
             <li>
-              <h1>Buat Akun Anda</h1>
+              <h1>Profil Anda</h1>
             </li>
             <li>
               <label for="name">Nama</label>
-              <input type="name" name="name" id="name" />
+              <input type="name" name="name" id="name" value="${name}" />
             </li>
             <li>
               <label for="email">Email</label>
-              <input type="email" name="email" id="email" />
+              <input type="email" name="email" id="email" value="${email}"/>
             </li>
             <li>
               <label for="password">Password</label>
               <input type="password" name="password" id="password" />
             </li>
-            <li>
-              <label for="repassword">Ulangi Password</label>
-              <input type="password" name="repassword" id="repassword" />
+              <button type="submit" clas="primary">Simpan</button>
             </li>
-            <li>
-              <button type="submit" clas="primary">Daftar</button>
             </li>
-            <li>
-              <div>
-                Sudah Punya Akun ?
-                <a  href="/#/login">Login </a>
-              </div>
+              <button type="button" id="logout-button">Logout</button>
             </li>
           </ul>
         </form>
@@ -65,4 +62,4 @@ const daftar = {
       `
   },
 };
-export default daftar;
+export default profile;

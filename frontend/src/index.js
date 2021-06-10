@@ -5,6 +5,7 @@ import Error404Screen from './screens/Error404Screen';
 import home from './screens/home';
 import LoginScreen from './screens/LoginScreen';
 import ProductScreen from './screens/ProductScreen';
+import profile from './screens/profile';
 import { hideLoading, parseRequestUrl, showLoading } from './utils';
 
 const routes = {
@@ -14,6 +15,7 @@ const routes = {
   '/cart': CartScreen,
   '/login': LoginScreen,
   '/daftar': daftar,
+  '/profile': profile,
 };
 const router = async () => {
   showLoading();
@@ -27,7 +29,7 @@ const router = async () => {
   await Header.after_render();
   const main = document.getElementById('main-container');
   main.innerHTML = await screen.render();
-  await screen.after_render();
+  if (screen.after_render) await screen.after_render();
   hideLoading();
 };
 window.addEventListener('load', router);

@@ -13,3 +13,19 @@ export const generateToken = (user) => {
     config.JWT_SECRET
   );
 };
+export const isAuth = (request, response, next) => {
+  const bearerToken = request.headers.authorization;
+  if (!bearerToken) {
+    response.status(401).send({message: 'Token tidak ditemukan'});
+  } else{
+    const token = bearerToken.slice(7, bearerToken.length);
+    jwt.verify(token, config.JWT_SECRET, (err, data) => {
+      if (err) {
+        response.status(401).send({message: 'Token Salah'});
+      } else {
+        request.user = data;
+        next();
+      }
+    });
+  }
+};
