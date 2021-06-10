@@ -20,5 +20,6 @@ module.exports = {
     'no-undef': 0,
     'no-global-assign': 0,
     'no-restricted-globals': 0,
+    'arrow-body-style': 0,
   },
 };
