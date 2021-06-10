@@ -18,7 +18,7 @@ const ProductScreen = {
     }
     hideLoading();
     return `
-    <div class+"content">
+    <div class="content">
       <div class="back">
         <a href="/#/">Kembali ke Halaman Awal</a>
       </div>

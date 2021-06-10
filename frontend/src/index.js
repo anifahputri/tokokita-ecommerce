@@ -4,8 +4,10 @@ import daftar from './screens/daftar';
 import Error404Screen from './screens/Error404Screen';
 import home from './screens/home';
 import LoginScreen from './screens/LoginScreen';
+import PaymentScreen from './screens/PaymentScreen';
 import ProductScreen from './screens/ProductScreen';
 import profile from './screens/profile';
+import ShippingScreen from './screens/ShippingScreen';
 import { hideLoading, parseRequestUrl, showLoading } from './utils';
 
 const routes = {
@@ -16,6 +18,8 @@ const routes = {
   '/login': LoginScreen,
   '/daftar': daftar,
   '/profile': profile,
+  '/shipping': ShippingScreen,
+  '/payment': PaymentScreen,
 };
 const router = async () => {
   showLoading();
