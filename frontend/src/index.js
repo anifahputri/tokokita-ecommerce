@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import CartScreen from './screens/CartScreen';
+import daftar from './screens/daftar';
 import Error404Screen from './screens/Error404Screen';
 import home from './screens/home';
 import LoginScreen from './screens/LoginScreen';
@@ -12,6 +13,7 @@ const routes = {
   '/cart/:id': CartScreen,
   '/cart': CartScreen,
   '/login': LoginScreen,
+  '/daftar': daftar,
 };
 const router = async () => {
   showLoading();

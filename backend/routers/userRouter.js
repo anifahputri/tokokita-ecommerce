@@ -42,4 +42,27 @@ userRouter.post(
       });
     }
   }));
+  userRouter.post(
+    '/daftar', 
+    expressAsyncHandler (async (request, response) => {
+      const user = new User({
+        name: request.body.name,
+        email: request.body.email,
+        password: request.body.password
+      });
+      const createdUser = await user.save();
+      if (!createdUser) {
+        response.status(401).send({
+          message: 'Data yang dimasukkan Salah!',
+        });
+      } else {
+        response.send({
+          _id: createdUser._id,
+          name: createdUser.name,
+          email: createdUser.email,
+          isAdmin: createdUser.isAdmin,
+          token: generateToken(createdUser),
+        });
+      }
+    }));
 export default userRouter;

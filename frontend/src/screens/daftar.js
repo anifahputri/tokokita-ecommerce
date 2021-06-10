@@ -1,15 +1,16 @@
-import { login } from "../api";
+import { register } from "../api";
 import { getUserInfo, setUserInfo } from "../localStorage";
 import { hideLoading, showLoading, showMessage } from "../utils";
 
-const LoginScreen = {
+const daftar = {
   after_render: () => {
     document
-    .getElementById("login-form")
+    .getElementById("register-form")
     .addEventListener("submit", async (e) => {
       e.preventDefault();
       showLoading();
-      const data = await login({
+      const data = await register({
+        name: document.getElementById('name').value,
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
       });
@@ -28,10 +29,14 @@ const LoginScreen = {
     }
     return `
       <div class="form-container">
-        <form id="login-form">
+        <form id="register-form">
           <ul class="form-items">
             <li>
-              <h1>Login</h1>
+              <h1>Buat Akun Anda</h1>
+            </li>
+            <li>
+              <label for="name">Nama</label>
+              <input type="name" name="name" id="name" />
             </li>
             <li>
               <label for="email">Email</label>
@@ -42,12 +47,16 @@ const LoginScreen = {
               <input type="password" name="password" id="password" />
             </li>
             <li>
-              <button type="submit" clas="primary">Login</button>
+              <label for="repassword">Ulangi Password</label>
+              <input type="password" name="repassword" id="repassword" />
+            </>
+            <li>
+              <button type="submit" clas="primary">Daftar</button>
             </li>
             <li>
               <div>
-                Belum Punya Akun ?
-                <a  href="/#/daftar">Buat Akun Anda </a>
+                Sudah Punya Akun ?
+                <a  href="/#/login">Login </a>
               </div>
             </li>
           </ul>
@@ -56,4 +65,4 @@ const LoginScreen = {
       `
   },
 };
-export default LoginScreen;
+export default daftar;
