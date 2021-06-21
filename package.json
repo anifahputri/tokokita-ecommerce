@@ -1,5 +1,5 @@
 {
-  "name": "js-ecommerce-project",
+  "name": "tokokita-ecommerce",
   "version": "1.0.0",
   "description": "1. Mmebuat Struktur Folder   1. membuat root folder \"js-ecommerce-project\"   2. menambahkan folder frontend dan backend   3. membuat src folder didalam folder frontend   4. membuat index.html didalam src   5. jalankan npm init --y di frontend   6. lalu, npm install -D live-server   7. tambahkan command start dengan isi live-server src --verbose pada package.json   8. jalankan npm start",
   "main": "index.js",
@@ -17,7 +17,7 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.13"
+    "mongoose": "^5.12.14"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
